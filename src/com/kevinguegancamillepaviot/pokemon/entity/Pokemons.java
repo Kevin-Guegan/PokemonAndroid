@@ -10,6 +10,7 @@ import com.tactfactory.harmony.annotation.GeneratedValue.Strategy;
 import com.tactfactory.harmony.annotation.Id;
 import com.tactfactory.harmony.annotation.ManyToOne;
 import com.tactfactory.harmony.annotation.OneToOne;
+import com.tactfactory.harmony.bundles.rest.annotation.Rest;
 
 @Entity
 @Rest

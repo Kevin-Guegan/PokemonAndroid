@@ -8,6 +8,7 @@ import com.tactfactory.harmony.annotation.GeneratedValue;
 import com.tactfactory.harmony.annotation.Id;
 import com.tactfactory.harmony.annotation.ManyToMany;
 import com.tactfactory.harmony.annotation.OneToMany;
+import com.tactfactory.harmony.bundles.rest.annotation.Rest;
 import com.tactfactory.harmony.annotation.Column.Type;
 import com.tactfactory.harmony.annotation.GeneratedValue.Strategy;
 

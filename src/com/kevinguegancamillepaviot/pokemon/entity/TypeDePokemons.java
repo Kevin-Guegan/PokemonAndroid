@@ -1,5 +1,7 @@
 package com.kevinguegancamillepaviot.pokemon.entity;
 
+import java.util.ArrayList;
+
 import com.tactfactory.harmony.annotation.Column;
 import com.tactfactory.harmony.annotation.Column.Type;
 import com.tactfactory.harmony.annotation.Entity;
@@ -8,6 +10,8 @@ import com.tactfactory.harmony.annotation.GeneratedValue.Strategy;
 import com.tactfactory.harmony.annotation.Id;
 import com.tactfactory.harmony.annotation.ManyToMany;
 import com.tactfactory.harmony.annotation.ManyToOne;
+import com.tactfactory.harmony.annotation.OneToOne;
+import com.tactfactory.harmony.bundles.rest.annotation.Rest;
 
 @Entity
 @Rest
@@ -45,9 +49,9 @@ public class TypeDePokemons {
 	
 	@ManyToMany()
 	@Column(nullable = true)
-	private TypeDePokemons typeDePokemon;
+	private ArrayList<TypeDePokemons> typeDePokemon;
 	
-	@ManyToMany()
+	@OneToOne()
 	@Column()
 	private Pokedexs pokedex;
 }
