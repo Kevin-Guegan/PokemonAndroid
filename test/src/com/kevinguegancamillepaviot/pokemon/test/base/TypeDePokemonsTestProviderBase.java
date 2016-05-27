@@ -21,6 +21,7 @@ import com.kevinguegancamillepaviot.pokemon.data.TypeDePokemonsSQLiteAdapter;
 import com.kevinguegancamillepaviot.pokemon.entity.TypeDePokemons;
 import com.kevinguegancamillepaviot.pokemon.entity.TypeDePokemons;
 
+import com.kevinguegancamillepaviot.pokemon.fixture.TypeDePokemonsDataLoader;
 
 import java.util.ArrayList;
 import com.kevinguegancamillepaviot.pokemon.test.utils.*;
@@ -60,6 +61,13 @@ public abstract class TypeDePokemonsTestProviderBase extends TestDBBase {
 
         this.adapter = new TypeDePokemonsSQLiteAdapter(this.ctx);
 
+        this.entities = new ArrayList<TypeDePokemons>();
+        this.entities.addAll(TypeDePokemonsDataLoader.getInstance(this.ctx).getMap().values());
+        if (this.entities.size()>0) {
+            this.entity = this.entities.get(TestUtils.generateRandomInt(0,entities.size()-1));
+        }
+
+        this.nbEntities += TypeDePokemonsDataLoader.getInstance(this.ctx).getMap().size();
         this.provider = this.getContext().getContentResolver();
         this.providerUtils = new TypeDePokemonsProviderUtils(this.getContext());
     }

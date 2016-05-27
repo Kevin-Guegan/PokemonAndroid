@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-
+import com.kevinguegancamillepaviot.pokemon.data.PokemonSQLiteOpenHelper;
 import com.kevinguegancamillepaviot.pokemon.data.TypesSQLiteAdapter;
 import com.kevinguegancamillepaviot.pokemon.provider.contract.TypesContract;
 import com.kevinguegancamillepaviot.pokemon.data.DresseursSQLiteAdapter;
@@ -58,6 +58,7 @@ import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
 
 
+import com.kevinguegancamillepaviot.pokemon.fixture.DataLoader;
 
 
 /**
@@ -197,6 +198,9 @@ public class PokemonSQLiteOpenHelperBase extends SQLiteOpenHelper {
             }
             db.execSQL(PositionsSQLiteAdapter.getSchema());
             db.execSQL("PRAGMA foreign_keys = ON;");
+            if (!PokemonSQLiteOpenHelper.isJUnit) {
+                this.loadData(db);
+            }
         }
 
     }
@@ -271,6 +275,19 @@ public class PokemonSQLiteOpenHelperBase extends SQLiteOpenHelper {
         // TODO : Upgrade your tables !
     }
 
+    /**
+     * Loads data from the fixture files.
+     * @param db The database to populate with fixtures
+     */
+    private void loadData(final SQLiteDatabase db) {
+        final DataLoader dataLoader = new DataLoader(this.ctx);
+        dataLoader.clean();
+        int mode = DataLoader.MODE_APP;
+        if (PokemonApplication.DEBUG) {
+            mode = DataLoader.MODE_APP | DataLoader.MODE_DEBUG;
+        }
+        dataLoader.loadData(db, mode);
+    }
 
     /**
      * Creates a empty database on the system and rewrites it with your own

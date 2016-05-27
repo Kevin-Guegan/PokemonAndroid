@@ -20,6 +20,7 @@ import com.kevinguegancamillepaviot.pokemon.data.DresseursSQLiteAdapter;
 
 import com.kevinguegancamillepaviot.pokemon.entity.Dresseurs;
 
+import com.kevinguegancamillepaviot.pokemon.fixture.DresseursDataLoader;
 
 import java.util.ArrayList;
 import com.kevinguegancamillepaviot.pokemon.test.utils.*;
@@ -59,6 +60,13 @@ public abstract class DresseursTestProviderBase extends TestDBBase {
 
         this.adapter = new DresseursSQLiteAdapter(this.ctx);
 
+        this.entities = new ArrayList<Dresseurs>();
+        this.entities.addAll(DresseursDataLoader.getInstance(this.ctx).getMap().values());
+        if (this.entities.size()>0) {
+            this.entity = this.entities.get(TestUtils.generateRandomInt(0,entities.size()-1));
+        }
+
+        this.nbEntities += DresseursDataLoader.getInstance(this.ctx).getMap().size();
         this.provider = this.getContext().getContentResolver();
         this.providerUtils = new DresseursProviderUtils(this.getContext());
     }

@@ -17,6 +17,7 @@ import android.test.suitebuilder.annotation.SmallTest;
 import com.kevinguegancamillepaviot.pokemon.data.DresseursSQLiteAdapter;
 import com.kevinguegancamillepaviot.pokemon.entity.Dresseurs;
 
+import com.kevinguegancamillepaviot.pokemon.fixture.DresseursDataLoader;
 
 import com.kevinguegancamillepaviot.pokemon.test.utils.*;
 
@@ -45,6 +46,13 @@ public abstract class DresseursTestDBBase extends TestDBBase {
         this.adapter = new DresseursSQLiteAdapter(this.ctx);
         this.adapter.open();
 
+        this.entities = new ArrayList<Dresseurs>();        
+        this.entities.addAll(DresseursDataLoader.getInstance(this.ctx).getMap().values());
+        if (entities.size()>0){
+            this.entity = this.entities.get(TestUtils.generateRandomInt(0,entities.size()-1));
+        }
+
+        this.nbEntities += DresseursDataLoader.getInstance(this.ctx).getMap().size();
     }
 
     /* (non-Javadoc)

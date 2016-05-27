@@ -17,6 +17,7 @@ import android.test.suitebuilder.annotation.SmallTest;
 import com.kevinguegancamillepaviot.pokemon.data.BadgesSQLiteAdapter;
 import com.kevinguegancamillepaviot.pokemon.entity.Badges;
 
+import com.kevinguegancamillepaviot.pokemon.fixture.BadgesDataLoader;
 
 import com.kevinguegancamillepaviot.pokemon.test.utils.*;
 
@@ -45,6 +46,13 @@ public abstract class BadgesTestDBBase extends TestDBBase {
         this.adapter = new BadgesSQLiteAdapter(this.ctx);
         this.adapter.open();
 
+        this.entities = new ArrayList<Badges>();        
+        this.entities.addAll(BadgesDataLoader.getInstance(this.ctx).getMap().values());
+        if (entities.size()>0){
+            this.entity = this.entities.get(TestUtils.generateRandomInt(0,entities.size()-1));
+        }
+
+        this.nbEntities += BadgesDataLoader.getInstance(this.ctx).getMap().size();
     }
 
     /* (non-Javadoc)

@@ -18,7 +18,8 @@ import com.kevinguegancamillepaviot.pokemon.entity.Dresseurs;
 
 import com.kevinguegancamillepaviot.pokemon.test.utils.TestUtils;
 import com.kevinguegancamillepaviot.pokemon.entity.Npcs;
-import com.kevinguegancamillepaviot.pokemon.test.utils.NpcsUtils;
+import com.kevinguegancamillepaviot.pokemon.fixture.NpcsDataLoader;
+
 
 import java.util.ArrayList;
 
@@ -37,9 +38,14 @@ public abstract class DresseursUtilsBase {
         dresseurs.setNom("nom_"+TestUtils.generateRandomString(10));
         dresseurs.setLogin("login_"+TestUtils.generateRandomString(10));
         dresseurs.setPassword("password_"+TestUtils.generateRandomString(10));
+        ArrayList<Npcs> npcs =
+            new ArrayList<Npcs>();
+        npcs.addAll(NpcsDataLoader.getInstance(ctx).getMap().values());
         ArrayList<Npcs> relatedNpcs = new ArrayList<Npcs>();
-        relatedNpcs.add(NpcsUtils.generateRandom(ctx));
-        dresseurs.setNpc(relatedNpcs);
+        if (!npcs.isEmpty()) {
+            relatedNpcs.add(npcs.get(TestUtils.generateRandomInt(0, npcs.size())));
+            dresseurs.setNpc(relatedNpcs);
+        }
 
         return dresseurs;
     }

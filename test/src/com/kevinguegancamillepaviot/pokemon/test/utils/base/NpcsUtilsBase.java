@@ -18,11 +18,14 @@ import com.kevinguegancamillepaviot.pokemon.entity.Npcs;
 
 import com.kevinguegancamillepaviot.pokemon.test.utils.TestUtils;
 import com.kevinguegancamillepaviot.pokemon.entity.Pokemons;
-import com.kevinguegancamillepaviot.pokemon.test.utils.PokemonsUtils;
+import com.kevinguegancamillepaviot.pokemon.fixture.PokemonsDataLoader;
+
 import com.kevinguegancamillepaviot.pokemon.entity.Badges;
-import com.kevinguegancamillepaviot.pokemon.test.utils.BadgesUtils;
+import com.kevinguegancamillepaviot.pokemon.fixture.BadgesDataLoader;
+
 import com.kevinguegancamillepaviot.pokemon.entity.Objets;
-import com.kevinguegancamillepaviot.pokemon.test.utils.ObjetsUtils;
+import com.kevinguegancamillepaviot.pokemon.fixture.ObjetsDataLoader;
+
 
 import java.util.ArrayList;
 
@@ -41,15 +44,30 @@ public abstract class NpcsUtilsBase {
         npcs.setNom("nom_"+TestUtils.generateRandomString(10));
         npcs.setProfession("profession_"+TestUtils.generateRandomString(10));
         npcs.setTexte("texte_"+TestUtils.generateRandomString(10));
+        ArrayList<Pokemons> pokemons =
+            new ArrayList<Pokemons>();
+        pokemons.addAll(PokemonsDataLoader.getInstance(ctx).getMap().values());
         ArrayList<Pokemons> relatedPokemons = new ArrayList<Pokemons>();
-        relatedPokemons.add(PokemonsUtils.generateRandom(ctx));
-        npcs.setPokemon(relatedPokemons);
+        if (!pokemons.isEmpty()) {
+            relatedPokemons.add(pokemons.get(TestUtils.generateRandomInt(0, pokemons.size())));
+            npcs.setPokemon(relatedPokemons);
+        }
+        ArrayList<Badges> badges =
+            new ArrayList<Badges>();
+        badges.addAll(BadgesDataLoader.getInstance(ctx).getMap().values());
         ArrayList<Badges> relatedBadges = new ArrayList<Badges>();
-        relatedBadges.add(BadgesUtils.generateRandom(ctx));
-        npcs.setBadge(relatedBadges);
+        if (!badges.isEmpty()) {
+            relatedBadges.add(badges.get(TestUtils.generateRandomInt(0, badges.size())));
+            npcs.setBadge(relatedBadges);
+        }
+        ArrayList<Objets> objets =
+            new ArrayList<Objets>();
+        objets.addAll(ObjetsDataLoader.getInstance(ctx).getMap().values());
         ArrayList<Objets> relatedObjets = new ArrayList<Objets>();
-        relatedObjets.add(ObjetsUtils.generateRandom(ctx));
-        npcs.setObjet(relatedObjets);
+        if (!objets.isEmpty()) {
+            relatedObjets.add(objets.get(TestUtils.generateRandomInt(0, objets.size())));
+            npcs.setObjet(relatedObjets);
+        }
 
         return npcs;
     }

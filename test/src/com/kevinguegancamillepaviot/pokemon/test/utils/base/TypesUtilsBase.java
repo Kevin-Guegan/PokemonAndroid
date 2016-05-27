@@ -18,9 +18,11 @@ import com.kevinguegancamillepaviot.pokemon.entity.Types;
 
 import com.kevinguegancamillepaviot.pokemon.test.utils.TestUtils;
 import com.kevinguegancamillepaviot.pokemon.entity.TypeDePokemons;
-import com.kevinguegancamillepaviot.pokemon.test.utils.TypeDePokemonsUtils;
+import com.kevinguegancamillepaviot.pokemon.fixture.TypeDePokemonsDataLoader;
+
 import com.kevinguegancamillepaviot.pokemon.entity.Attaques;
-import com.kevinguegancamillepaviot.pokemon.test.utils.AttaquesUtils;
+import com.kevinguegancamillepaviot.pokemon.fixture.AttaquesDataLoader;
+
 
 import java.util.ArrayList;
 
@@ -36,12 +38,22 @@ public abstract class TypesUtilsBase {
         Types types = new Types();
 
         types.setId(TestUtils.generateRandomInt(0,100) + 1);
+        ArrayList<TypeDePokemons> typeDePokemons =
+            new ArrayList<TypeDePokemons>();
+        typeDePokemons.addAll(TypeDePokemonsDataLoader.getInstance(ctx).getMap().values());
         ArrayList<TypeDePokemons> relatedTypeDePokemons = new ArrayList<TypeDePokemons>();
-        relatedTypeDePokemons.add(TypeDePokemonsUtils.generateRandom(ctx));
-        types.setTypeDePokemon(relatedTypeDePokemons);
+        if (!typeDePokemons.isEmpty()) {
+            relatedTypeDePokemons.add(typeDePokemons.get(TestUtils.generateRandomInt(0, typeDePokemons.size())));
+            types.setTypeDePokemon(relatedTypeDePokemons);
+        }
+        ArrayList<Attaques> attaques =
+            new ArrayList<Attaques>();
+        attaques.addAll(AttaquesDataLoader.getInstance(ctx).getMap().values());
         ArrayList<Attaques> relatedAttaques = new ArrayList<Attaques>();
-        relatedAttaques.add(AttaquesUtils.generateRandom(ctx));
-        types.setAttaque(relatedAttaques);
+        if (!attaques.isEmpty()) {
+            relatedAttaques.add(attaques.get(TestUtils.generateRandomInt(0, attaques.size())));
+            types.setAttaque(relatedAttaques);
+        }
 
         return types;
     }

@@ -17,9 +17,11 @@ import com.kevinguegancamillepaviot.pokemon.entity.Arenes;
 
 
 import com.kevinguegancamillepaviot.pokemon.test.utils.TestUtils;
+import com.kevinguegancamillepaviot.pokemon.entity.Badges;
+import com.kevinguegancamillepaviot.pokemon.fixture.BadgesDataLoader;
 
-import com.kevinguegancamillepaviot.pokemon.test.utils.BadgesUtils;
 
+import java.util.ArrayList;
 
 public abstract class ArenesUtilsBase {
 
@@ -34,7 +36,12 @@ public abstract class ArenesUtilsBase {
 
         arenes.setId(TestUtils.generateRandomInt(0,100) + 1);
         arenes.setNom("nom_"+TestUtils.generateRandomString(10));
-        arenes.setBadge(BadgesUtils.generateRandom(ctx));
+        ArrayList<Badges> badges =
+            new ArrayList<Badges>();
+        badges.addAll(BadgesDataLoader.getInstance(ctx).getMap().values());
+        if (!badges.isEmpty()) {
+            arenes.setBadge(badges.get(TestUtils.generateRandomInt(0, badges.size())));
+        }
 
         return arenes;
     }

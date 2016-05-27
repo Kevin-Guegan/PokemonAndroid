@@ -20,6 +20,7 @@ import com.kevinguegancamillepaviot.pokemon.data.BadgesSQLiteAdapter;
 
 import com.kevinguegancamillepaviot.pokemon.entity.Badges;
 
+import com.kevinguegancamillepaviot.pokemon.fixture.BadgesDataLoader;
 
 import java.util.ArrayList;
 import com.kevinguegancamillepaviot.pokemon.test.utils.*;
@@ -59,6 +60,13 @@ public abstract class BadgesTestProviderBase extends TestDBBase {
 
         this.adapter = new BadgesSQLiteAdapter(this.ctx);
 
+        this.entities = new ArrayList<Badges>();
+        this.entities.addAll(BadgesDataLoader.getInstance(this.ctx).getMap().values());
+        if (this.entities.size()>0) {
+            this.entity = this.entities.get(TestUtils.generateRandomInt(0,entities.size()-1));
+        }
+
+        this.nbEntities += BadgesDataLoader.getInstance(this.ctx).getMap().size();
         this.provider = this.getContext().getContentResolver();
         this.providerUtils = new BadgesProviderUtils(this.getContext());
     }

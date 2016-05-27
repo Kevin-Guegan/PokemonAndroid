@@ -17,9 +17,11 @@ import com.kevinguegancamillepaviot.pokemon.entity.Objets;
 
 
 import com.kevinguegancamillepaviot.pokemon.test.utils.TestUtils;
+import com.kevinguegancamillepaviot.pokemon.entity.TypeObjets;
+import com.kevinguegancamillepaviot.pokemon.fixture.TypeObjetsDataLoader;
 
-import com.kevinguegancamillepaviot.pokemon.test.utils.TypeObjetsUtils;
 
+import java.util.ArrayList;
 
 public abstract class ObjetsUtilsBase {
 
@@ -35,7 +37,12 @@ public abstract class ObjetsUtilsBase {
         objets.setId(TestUtils.generateRandomInt(0,100) + 1);
         objets.setNom("nom_"+TestUtils.generateRandomString(10));
         objets.setQuantite(TestUtils.generateRandomInt(0,100));
-        objets.setObjet(TypeObjetsUtils.generateRandom(ctx));
+        ArrayList<TypeObjets> objets =
+            new ArrayList<TypeObjets>();
+        objets.addAll(TypeObjetsDataLoader.getInstance(ctx).getMap().values());
+        if (!objets.isEmpty()) {
+            objets.setObjet(objets.get(TestUtils.generateRandomInt(0, objets.size())));
+        }
 
         return objets;
     }

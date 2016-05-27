@@ -20,6 +20,7 @@ import com.kevinguegancamillepaviot.pokemon.data.AttaquesSQLiteAdapter;
 
 import com.kevinguegancamillepaviot.pokemon.entity.Attaques;
 
+import com.kevinguegancamillepaviot.pokemon.fixture.AttaquesDataLoader;
 
 import java.util.ArrayList;
 import com.kevinguegancamillepaviot.pokemon.test.utils.*;
@@ -59,6 +60,13 @@ public abstract class AttaquesTestProviderBase extends TestDBBase {
 
         this.adapter = new AttaquesSQLiteAdapter(this.ctx);
 
+        this.entities = new ArrayList<Attaques>();
+        this.entities.addAll(AttaquesDataLoader.getInstance(this.ctx).getMap().values());
+        if (this.entities.size()>0) {
+            this.entity = this.entities.get(TestUtils.generateRandomInt(0,entities.size()-1));
+        }
+
+        this.nbEntities += AttaquesDataLoader.getInstance(this.ctx).getMap().size();
         this.provider = this.getContext().getContentResolver();
         this.providerUtils = new AttaquesProviderUtils(this.getContext());
     }

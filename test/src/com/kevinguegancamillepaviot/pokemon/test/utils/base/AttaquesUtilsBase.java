@@ -17,9 +17,11 @@ import com.kevinguegancamillepaviot.pokemon.entity.Attaques;
 
 
 import com.kevinguegancamillepaviot.pokemon.test.utils.TestUtils;
+import com.kevinguegancamillepaviot.pokemon.entity.Types;
+import com.kevinguegancamillepaviot.pokemon.fixture.TypesDataLoader;
 
-import com.kevinguegancamillepaviot.pokemon.test.utils.TypesUtils;
 
+import java.util.ArrayList;
 
 public abstract class AttaquesUtilsBase {
 
@@ -36,7 +38,12 @@ public abstract class AttaquesUtilsBase {
         attaques.setNom("nom_"+TestUtils.generateRandomString(10));
         attaques.setPuissance(TestUtils.generateRandomInt(0,100));
         attaques.setPrecis(TestUtils.generateRandomInt(0,100));
-        attaques.setType(TypesUtils.generateRandom(ctx));
+        ArrayList<Types> types =
+            new ArrayList<Types>();
+        types.addAll(TypesDataLoader.getInstance(ctx).getMap().values());
+        if (!types.isEmpty()) {
+            attaques.setType(types.get(TestUtils.generateRandomInt(0, types.size())));
+        }
 
         return attaques;
     }

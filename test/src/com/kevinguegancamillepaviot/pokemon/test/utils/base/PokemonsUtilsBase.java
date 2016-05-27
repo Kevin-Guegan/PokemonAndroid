@@ -17,11 +17,14 @@ import com.kevinguegancamillepaviot.pokemon.entity.Pokemons;
 
 
 import com.kevinguegancamillepaviot.pokemon.test.utils.TestUtils;
+import com.kevinguegancamillepaviot.pokemon.entity.TypeDePokemons;
+import com.kevinguegancamillepaviot.pokemon.fixture.TypeDePokemonsDataLoader;
 
-import com.kevinguegancamillepaviot.pokemon.test.utils.TypeDePokemonsUtils;
+import com.kevinguegancamillepaviot.pokemon.entity.Attaques;
+import com.kevinguegancamillepaviot.pokemon.fixture.AttaquesDataLoader;
 
-import com.kevinguegancamillepaviot.pokemon.test.utils.AttaquesUtils;
 
+import java.util.ArrayList;
 
 public abstract class PokemonsUtilsBase {
 
@@ -38,11 +41,36 @@ public abstract class PokemonsUtilsBase {
         pokemons.setSurnom("surnom_"+TestUtils.generateRandomString(10));
         pokemons.setNiveau(TestUtils.generateRandomInt(0,100));
         pokemons.setCapture(TestUtils.generateRandomDateTime());
-        pokemons.setTypePokemon(TypeDePokemonsUtils.generateRandom(ctx));
-        pokemons.setAttaque1(AttaquesUtils.generateRandom(ctx));
-        pokemons.setAttaque2(AttaquesUtils.generateRandom(ctx));
-        pokemons.setAttaque3(AttaquesUtils.generateRandom(ctx));
-        pokemons.setAttaque4(AttaquesUtils.generateRandom(ctx));
+        ArrayList<TypeDePokemons> typePokemons =
+            new ArrayList<TypeDePokemons>();
+        typePokemons.addAll(TypeDePokemonsDataLoader.getInstance(ctx).getMap().values());
+        if (!typePokemons.isEmpty()) {
+            pokemons.setTypePokemon(typePokemons.get(TestUtils.generateRandomInt(0, typePokemons.size())));
+        }
+        ArrayList<Attaques> attaque1s =
+            new ArrayList<Attaques>();
+        attaque1s.addAll(AttaquesDataLoader.getInstance(ctx).getMap().values());
+        if (!attaque1s.isEmpty()) {
+            pokemons.setAttaque1(attaque1s.get(TestUtils.generateRandomInt(0, attaque1s.size())));
+        }
+        ArrayList<Attaques> attaque2s =
+            new ArrayList<Attaques>();
+        attaque2s.addAll(AttaquesDataLoader.getInstance(ctx).getMap().values());
+        if (!attaque2s.isEmpty()) {
+            pokemons.setAttaque2(attaque2s.get(TestUtils.generateRandomInt(0, attaque2s.size())));
+        }
+        ArrayList<Attaques> attaque3s =
+            new ArrayList<Attaques>();
+        attaque3s.addAll(AttaquesDataLoader.getInstance(ctx).getMap().values());
+        if (!attaque3s.isEmpty()) {
+            pokemons.setAttaque3(attaque3s.get(TestUtils.generateRandomInt(0, attaque3s.size())));
+        }
+        ArrayList<Attaques> attaque4s =
+            new ArrayList<Attaques>();
+        attaque4s.addAll(AttaquesDataLoader.getInstance(ctx).getMap().values());
+        if (!attaque4s.isEmpty()) {
+            pokemons.setAttaque4(attaque4s.get(TestUtils.generateRandomInt(0, attaque4s.size())));
+        }
 
         return pokemons;
     }

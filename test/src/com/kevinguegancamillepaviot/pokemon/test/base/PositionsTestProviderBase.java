@@ -20,6 +20,7 @@ import com.kevinguegancamillepaviot.pokemon.data.PositionsSQLiteAdapter;
 
 import com.kevinguegancamillepaviot.pokemon.entity.Positions;
 
+import com.kevinguegancamillepaviot.pokemon.fixture.PositionsDataLoader;
 
 import java.util.ArrayList;
 import com.kevinguegancamillepaviot.pokemon.test.utils.*;
@@ -59,6 +60,13 @@ public abstract class PositionsTestProviderBase extends TestDBBase {
 
         this.adapter = new PositionsSQLiteAdapter(this.ctx);
 
+        this.entities = new ArrayList<Positions>();
+        this.entities.addAll(PositionsDataLoader.getInstance(this.ctx).getMap().values());
+        if (this.entities.size()>0) {
+            this.entity = this.entities.get(TestUtils.generateRandomInt(0,entities.size()-1));
+        }
+
+        this.nbEntities += PositionsDataLoader.getInstance(this.ctx).getMap().size();
         this.provider = this.getContext().getContentResolver();
         this.providerUtils = new PositionsProviderUtils(this.getContext());
     }

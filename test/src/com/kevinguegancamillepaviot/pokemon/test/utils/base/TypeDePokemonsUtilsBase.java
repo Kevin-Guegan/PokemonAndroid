@@ -17,12 +17,15 @@ import com.kevinguegancamillepaviot.pokemon.entity.TypeDePokemons;
 
 
 import com.kevinguegancamillepaviot.pokemon.test.utils.TestUtils;
+import com.kevinguegancamillepaviot.pokemon.entity.Types;
+import com.kevinguegancamillepaviot.pokemon.fixture.TypesDataLoader;
 
-import com.kevinguegancamillepaviot.pokemon.test.utils.TypesUtils;
 import com.kevinguegancamillepaviot.pokemon.entity.TypeDePokemons;
-import com.kevinguegancamillepaviot.pokemon.test.utils.TypeDePokemonsUtils;
+import com.kevinguegancamillepaviot.pokemon.fixture.TypeDePokemonsDataLoader;
 
-import com.kevinguegancamillepaviot.pokemon.test.utils.PokedexsUtils;
+import com.kevinguegancamillepaviot.pokemon.entity.Pokedexs;
+import com.kevinguegancamillepaviot.pokemon.fixture.PokedexsDataLoader;
+
 
 import java.util.ArrayList;
 
@@ -45,11 +48,26 @@ public abstract class TypeDePokemonsUtilsBase {
         typeDePokemons.setDefence_spe(TestUtils.generateRandomInt(0,100));
         typeDePokemons.setVitesse(TestUtils.generateRandomInt(0,100));
         typeDePokemons.setPv(TestUtils.generateRandomInt(0,100));
-        typeDePokemons.setType(TypesUtils.generateRandom(ctx));
+        ArrayList<Types> types =
+            new ArrayList<Types>();
+        types.addAll(TypesDataLoader.getInstance(ctx).getMap().values());
+        if (!types.isEmpty()) {
+            typeDePokemons.setType(types.get(TestUtils.generateRandomInt(0, types.size())));
+        }
+        ArrayList<TypeDePokemons> typeDePokemons =
+            new ArrayList<TypeDePokemons>();
+        typeDePokemons.addAll(TypeDePokemonsDataLoader.getInstance(ctx).getMap().values());
         ArrayList<TypeDePokemons> relatedTypeDePokemons = new ArrayList<TypeDePokemons>();
-        relatedTypeDePokemons.add(TypeDePokemonsUtils.generateRandom(ctx));
-        typeDePokemons.setTypeDePokemon(relatedTypeDePokemons);
-        typeDePokemons.setPokedex(PokedexsUtils.generateRandom(ctx));
+        if (!typeDePokemons.isEmpty()) {
+            relatedTypeDePokemons.add(typeDePokemons.get(TestUtils.generateRandomInt(0, typeDePokemons.size())));
+            typeDePokemons.setTypeDePokemon(relatedTypeDePokemons);
+        }
+        ArrayList<Pokedexs> pokedexs =
+            new ArrayList<Pokedexs>();
+        pokedexs.addAll(PokedexsDataLoader.getInstance(ctx).getMap().values());
+        if (!pokedexs.isEmpty()) {
+            typeDePokemons.setPokedex(pokedexs.get(TestUtils.generateRandomInt(0, pokedexs.size())));
+        }
 
         return typeDePokemons;
     }

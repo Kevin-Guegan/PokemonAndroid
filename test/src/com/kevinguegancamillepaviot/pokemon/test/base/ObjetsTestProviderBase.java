@@ -20,6 +20,7 @@ import com.kevinguegancamillepaviot.pokemon.data.ObjetsSQLiteAdapter;
 
 import com.kevinguegancamillepaviot.pokemon.entity.Objets;
 
+import com.kevinguegancamillepaviot.pokemon.fixture.ObjetsDataLoader;
 
 import java.util.ArrayList;
 import com.kevinguegancamillepaviot.pokemon.test.utils.*;
@@ -59,6 +60,13 @@ public abstract class ObjetsTestProviderBase extends TestDBBase {
 
         this.adapter = new ObjetsSQLiteAdapter(this.ctx);
 
+        this.entities = new ArrayList<Objets>();
+        this.entities.addAll(ObjetsDataLoader.getInstance(this.ctx).getMap().values());
+        if (this.entities.size()>0) {
+            this.entity = this.entities.get(TestUtils.generateRandomInt(0,entities.size()-1));
+        }
+
+        this.nbEntities += ObjetsDataLoader.getInstance(this.ctx).getMap().size();
         this.provider = this.getContext().getContentResolver();
         this.providerUtils = new ObjetsProviderUtils(this.getContext());
     }

@@ -17,6 +17,7 @@ import android.test.suitebuilder.annotation.SmallTest;
 import com.kevinguegancamillepaviot.pokemon.data.ObjetsSQLiteAdapter;
 import com.kevinguegancamillepaviot.pokemon.entity.Objets;
 
+import com.kevinguegancamillepaviot.pokemon.fixture.ObjetsDataLoader;
 
 import com.kevinguegancamillepaviot.pokemon.test.utils.*;
 
@@ -45,6 +46,13 @@ public abstract class ObjetsTestDBBase extends TestDBBase {
         this.adapter = new ObjetsSQLiteAdapter(this.ctx);
         this.adapter.open();
 
+        this.entities = new ArrayList<Objets>();        
+        this.entities.addAll(ObjetsDataLoader.getInstance(this.ctx).getMap().values());
+        if (entities.size()>0){
+            this.entity = this.entities.get(TestUtils.generateRandomInt(0,entities.size()-1));
+        }
+
+        this.nbEntities += ObjetsDataLoader.getInstance(this.ctx).getMap().size();
     }
 
     /* (non-Javadoc)

@@ -10,14 +10,14 @@
  **************************************************************************/
 package com.kevinguegancamillepaviot.pokemon.test.base;
 
-
+import java.io.File;
 
 import com.kevinguegancamillepaviot.pokemon.provider.PokemonProvider;
-
-
-
+import com.kevinguegancamillepaviot.pokemon.PokemonApplication;
+import com.kevinguegancamillepaviot.pokemon.fixture.DataLoader;
+import com.kevinguegancamillepaviot.pokemon.harmony.util.DatabaseUtil;
 import com.kevinguegancamillepaviot.pokemon.data.PokemonSQLiteOpenHelper;
-
+import com.kevinguegancamillepaviot.pokemon.data.base.SQLiteAdapterBase;
 
 import android.content.BroadcastReceiver;
 import android.content.ContentProvider;
@@ -26,7 +26,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.content.pm.ProviderInfo;
-
+import android.database.sqlite.SQLiteDatabase;
 import android.test.AndroidTestCase;
 import android.test.IsolatedContext;
 import android.test.RenamingDelegatingContext;
@@ -124,5 +124,52 @@ public class TestContextMock {
         PokemonSQLiteOpenHelper.isJUnit = true;
         this.setMockContext();
 
+        String dbPath =
+                this.androidTestCase.getContext()
+                        .getDatabasePath(SQLiteAdapterBase.DB_NAME)
+                        .getAbsolutePath() + ".test";
+
+        File cacheDbFile = new File(dbPath);
+
+        if (!cacheDbFile.exists() || !DataLoader.hasFixturesBeenLoaded) {
+            if (PokemonApplication.DEBUG) {
+                android.util.Log.d("TEST", "Create new Database cache");
+            }
+
+            // Create initial database
+            PokemonSQLiteOpenHelper helper =
+                    new PokemonSQLiteOpenHelper(
+                        this.getMockContext(),
+                        SQLiteAdapterBase.DB_NAME,
+                        null,
+                        PokemonApplication.getVersionCode(
+                                this.getMockContext()));
+
+            SQLiteDatabase db = helper.getWritableDatabase();
+            PokemonSQLiteOpenHelper.clearDatabase(db);
+
+            db.beginTransaction();
+            DataLoader dataLoader = new DataLoader(this.getMockContext());
+            dataLoader.clean();
+            dataLoader.loadData(db,
+                        DataLoader.MODE_APP |
+                        DataLoader.MODE_DEBUG |
+                        DataLoader.MODE_TEST);
+            db.setTransactionSuccessful();
+            db.endTransaction();
+            db.close();
+
+            DatabaseUtil.exportDB(this.getMockContext(),
+                    cacheDbFile,
+                    SQLiteAdapterBase.DB_NAME);
+        } else {
+            if (PokemonApplication.DEBUG) {
+                android.util.Log.d("TEST", "Re use old Database cache");
+            }
+            DatabaseUtil.importDB(this.getMockContext(),
+                    cacheDbFile,
+                    SQLiteAdapterBase.DB_NAME,
+                    false);
+        }
     }
 }
