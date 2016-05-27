@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView 
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+        <RelativeLayout
+            android:id="@+id/npcs_data_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp" >
+            <TextView
+                android:id="@+id/npcs_nom_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/npcs_nom_label"/>
+            <TextView
+                android:id="@+id/npcs_nom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textIsSelectable="true"
+                android:layout_below="@+id/npcs_nom_label" />
+            <TextView
+                android:id="@+id/npcs_profession_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/npcs_nom"
+                android:text="@string/npcs_profession_label"/>
+            <TextView
+                android:id="@+id/npcs_profession"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textIsSelectable="true"
+                android:layout_below="@+id/npcs_profession_label" />
+            <TextView
+                android:id="@+id/npcs_texte_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/npcs_profession"
+                android:text="@string/npcs_texte_label"/>
+            <TextView
+                android:id="@+id/npcs_texte"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textIsSelectable="true"
+                android:layout_below="@+id/npcs_texte_label" />
+            <TextView
+                android:id="@+id/npcs_pokemon_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/npcs_texte"
+                android:text="@string/npcs_pokemon_label"/>
+            <TextView
+                android:id="@+id/npcs_pokemon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textIsSelectable="true"
+                android:layout_below="@+id/npcs_pokemon_label" />
+            <TextView
+                android:id="@+id/npcs_badge_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/npcs_pokemon"
+                android:text="@string/npcs_badge_label"/>
+            <TextView
+                android:id="@+id/npcs_badge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textIsSelectable="true"
+                android:layout_below="@+id/npcs_badge_label" />
+            <TextView
+                android:id="@+id/npcs_objet_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/npcs_badge"
+                android:text="@string/npcs_objet_label"/>
+            <TextView
+                android:id="@+id/npcs_objet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textIsSelectable="true"
+                android:layout_below="@+id/npcs_objet_label" />
+        </RelativeLayout>
+    </ScrollView>
+    <TextView
+        android:id="@+id/npcs_empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:visibility="gone"
+        android:text="@string/npcs_not_found" />
+</RelativeLayout>

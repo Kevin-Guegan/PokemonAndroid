@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:harmony="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    <TextView
+        android:id="@+id/types_typedepokemon_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/types_typedepokemon_label"/>
+    <com.kevinguegancamillepaviot.pokemon.harmony.widget.MultiEntityWidget
+        android:id="@+id/types_typedepokemon_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/types_typedepokemon_label" />
+    <TextView
+        android:id="@+id/types_attaque_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/types_typedepokemon_button"
+        android:text="@string/types_attaque_label"/>
+    <com.kevinguegancamillepaviot.pokemon.harmony.widget.MultiEntityWidget
+        android:id="@+id/types_attaque_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/types_attaque_label" />
+</RelativeLayout>

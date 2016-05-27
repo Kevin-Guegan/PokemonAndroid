@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:harmony="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+   <TextView
+        android:id="@+id/npcs_nom_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/npcs_nom_label"/>
+    <EditText
+        android:id="@+id/npcs_nom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:layout_below="@+id/npcs_nom_label" />
+   <TextView
+        android:id="@+id/npcs_profession_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/npcs_nom"
+        android:text="@string/npcs_profession_label"/>
+    <EditText
+        android:id="@+id/npcs_profession"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:layout_below="@+id/npcs_profession_label" />
+   <TextView
+        android:id="@+id/npcs_texte_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/npcs_profession"
+        android:text="@string/npcs_texte_label"/>
+    <EditText
+        android:id="@+id/npcs_texte"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:layout_below="@+id/npcs_texte_label" />
+    <TextView
+        android:id="@+id/npcs_pokemon_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/npcs_texte"
+        android:text="@string/npcs_pokemon_label"/>
+    <com.kevinguegancamillepaviot.pokemon.harmony.widget.MultiEntityWidget
+        android:id="@+id/npcs_pokemon_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/npcs_pokemon_label" />
+    <TextView
+        android:id="@+id/npcs_badge_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/npcs_pokemon_button"
+        android:text="@string/npcs_badge_label"/>
+    <com.kevinguegancamillepaviot.pokemon.harmony.widget.MultiEntityWidget
+        android:id="@+id/npcs_badge_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/npcs_badge_label" />
+    <TextView
+        android:id="@+id/npcs_objet_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/npcs_badge_button"
+        android:text="@string/npcs_objet_label"/>
+    <com.kevinguegancamillepaviot.pokemon.harmony.widget.MultiEntityWidget
+        android:id="@+id/npcs_objet_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/npcs_objet_label" />
+</RelativeLayout>

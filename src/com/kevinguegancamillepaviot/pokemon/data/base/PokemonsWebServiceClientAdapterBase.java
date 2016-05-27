@@ -357,7 +357,7 @@ public abstract class PokemonsWebServiceClientAdapterBase
      * @param attaques : The associated attaques
      * @return -1 if an error has occurred. 0 if not.
      */
-    public int getByAttaques(Pokemons pokemons, Attaques attaques) {
+    public int getByAttaques1(Pokemons pokemons, Attaques attaques) {
         int result = -1;
         String response = this.invokeRequest(
                     Verb.GET,
@@ -387,7 +387,7 @@ public abstract class PokemonsWebServiceClientAdapterBase
      * @param attaques : The associated attaques
      * @return -1 if an error has occurred. 0 if not.
      */
-    public int getByAttaques(Pokemons pokemons, Attaques attaques) {
+    public int getByAttaques2(Pokemons pokemons, Attaques attaques) {
         int result = -1;
         String response = this.invokeRequest(
                     Verb.GET,
@@ -417,7 +417,7 @@ public abstract class PokemonsWebServiceClientAdapterBase
      * @param attaques : The associated attaques
      * @return -1 if an error has occurred. 0 if not.
      */
-    public int getByAttaques(Pokemons pokemons, Attaques attaques) {
+    public int getByAttaques3(Pokemons pokemons, Attaques attaques) {
         int result = -1;
         String response = this.invokeRequest(
                     Verb.GET,
@@ -447,7 +447,7 @@ public abstract class PokemonsWebServiceClientAdapterBase
      * @param attaques : The associated attaques
      * @return -1 if an error has occurred. 0 if not.
      */
-    public int getByAttaques(Pokemons pokemons, Attaques attaques) {
+    public int getByAttaques4(Pokemons pokemons, Attaques attaques) {
         int result = -1;
         String response = this.invokeRequest(
                     Verb.GET,

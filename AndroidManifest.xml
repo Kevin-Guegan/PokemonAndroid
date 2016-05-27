@@ -24,5 +24,531 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".view.badges.BadgesCreateActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="INSERT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.kevinguegancamillepaviot.pokemon.Badges" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.badges.BadgesEditActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="EDIT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.kevinguegancamillepaviot.pokemon.Badges" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.badges.BadgesShowActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.kevinguegancamillepaviot.pokemon.Badges" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.badges.BadgesListActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.collection/com.kevinguegancamillepaviot.pokemon.Badges" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.arenes.ArenesCreateActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="INSERT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.kevinguegancamillepaviot.pokemon.Arenes" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.arenes.ArenesEditActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="EDIT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.kevinguegancamillepaviot.pokemon.Arenes" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.arenes.ArenesShowActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.kevinguegancamillepaviot.pokemon.Arenes" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.arenes.ArenesListActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.collection/com.kevinguegancamillepaviot.pokemon.Arenes" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.types.TypesCreateActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="INSERT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.kevinguegancamillepaviot.pokemon.Types" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.types.TypesEditActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="EDIT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.kevinguegancamillepaviot.pokemon.Types" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.types.TypesShowActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.kevinguegancamillepaviot.pokemon.Types" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.types.TypesListActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.collection/com.kevinguegancamillepaviot.pokemon.Types" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.attaques.AttaquesCreateActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="INSERT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.kevinguegancamillepaviot.pokemon.Attaques" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.attaques.AttaquesEditActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="EDIT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.kevinguegancamillepaviot.pokemon.Attaques" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.attaques.AttaquesShowActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.kevinguegancamillepaviot.pokemon.Attaques" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.attaques.AttaquesListActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.collection/com.kevinguegancamillepaviot.pokemon.Attaques" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.npcs.NpcsCreateActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="INSERT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.kevinguegancamillepaviot.pokemon.Npcs" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.npcs.NpcsEditActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="EDIT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.kevinguegancamillepaviot.pokemon.Npcs" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.npcs.NpcsShowActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.kevinguegancamillepaviot.pokemon.Npcs" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.npcs.NpcsListActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.collection/com.kevinguegancamillepaviot.pokemon.Npcs" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.dresseurs.DresseursCreateActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="INSERT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.kevinguegancamillepaviot.pokemon.Dresseurs" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.dresseurs.DresseursEditActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="EDIT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.kevinguegancamillepaviot.pokemon.Dresseurs" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.dresseurs.DresseursShowActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.kevinguegancamillepaviot.pokemon.Dresseurs" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.dresseurs.DresseursListActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.collection/com.kevinguegancamillepaviot.pokemon.Dresseurs" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.pokemons.PokemonsCreateActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="INSERT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.kevinguegancamillepaviot.pokemon.Pokemons" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.pokemons.PokemonsEditActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="EDIT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.kevinguegancamillepaviot.pokemon.Pokemons" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.pokemons.PokemonsShowActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.kevinguegancamillepaviot.pokemon.Pokemons" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.pokemons.PokemonsListActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.collection/com.kevinguegancamillepaviot.pokemon.Pokemons" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.objets.ObjetsCreateActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="INSERT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.kevinguegancamillepaviot.pokemon.Objets" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.objets.ObjetsEditActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="EDIT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.kevinguegancamillepaviot.pokemon.Objets" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.objets.ObjetsShowActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.kevinguegancamillepaviot.pokemon.Objets" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.objets.ObjetsListActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.collection/com.kevinguegancamillepaviot.pokemon.Objets" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.typeobjets.TypeObjetsCreateActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="INSERT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.kevinguegancamillepaviot.pokemon.TypeObjets" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.typeobjets.TypeObjetsEditActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="EDIT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.kevinguegancamillepaviot.pokemon.TypeObjets" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.typeobjets.TypeObjetsShowActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.kevinguegancamillepaviot.pokemon.TypeObjets" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.typeobjets.TypeObjetsListActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.collection/com.kevinguegancamillepaviot.pokemon.TypeObjets" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.pokedexs.PokedexsCreateActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="INSERT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.kevinguegancamillepaviot.pokemon.Pokedexs" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.pokedexs.PokedexsEditActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="EDIT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.kevinguegancamillepaviot.pokemon.Pokedexs" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.pokedexs.PokedexsShowActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.kevinguegancamillepaviot.pokemon.Pokedexs" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.pokedexs.PokedexsListActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.collection/com.kevinguegancamillepaviot.pokemon.Pokedexs" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.typedepokemons.TypeDePokemonsCreateActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="INSERT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.kevinguegancamillepaviot.pokemon.TypeDePokemons" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.typedepokemons.TypeDePokemonsEditActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="EDIT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.kevinguegancamillepaviot.pokemon.TypeDePokemons" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.typedepokemons.TypeDePokemonsShowActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.kevinguegancamillepaviot.pokemon.TypeDePokemons" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.typedepokemons.TypeDePokemonsListActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.collection/com.kevinguegancamillepaviot.pokemon.TypeDePokemons" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.positions.PositionsCreateActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="INSERT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.kevinguegancamillepaviot.pokemon.Positions" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.positions.PositionsEditActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="EDIT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.kevinguegancamillepaviot.pokemon.Positions" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.positions.PositionsShowActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.kevinguegancamillepaviot.pokemon.Positions" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.positions.PositionsListActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.collection/com.kevinguegancamillepaviot.pokemon.Positions" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.zones.ZonesCreateActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="INSERT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.kevinguegancamillepaviot.pokemon.Zones" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.zones.ZonesEditActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="EDIT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.kevinguegancamillepaviot.pokemon.Zones" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.zones.ZonesShowActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.kevinguegancamillepaviot.pokemon.Zones" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.zones.ZonesListActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.collection/com.kevinguegancamillepaviot.pokemon.Zones" />
+            </intent-filter>
+        </activity>
+        <provider
+            android:name="com.kevinguegancamillepaviot.pokemon.provider.PokemonProvider"
+            android:authorities="com.kevinguegancamillepaviot.pokemon.provider"
+            android:label="@string/app_provider_name"
+            android:description="@string/app_provider_description"
+            android:exported="false" />
     </application>
 </manifest>
