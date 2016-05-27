@@ -1,0 +1,4 @@
+<project name="pokemon-test-custom" default="help">
+    <property name="tested.manifest.package" value="com.kevinguegancamillepaviot.pokemon" />
+    <import file="build.rules.xml"/>
+</project>
