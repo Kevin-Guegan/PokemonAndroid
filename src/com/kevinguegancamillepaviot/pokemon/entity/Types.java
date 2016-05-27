@@ -11,6 +11,7 @@ import com.tactfactory.harmony.annotation.Entity;
 import com.tactfactory.harmony.annotation.GeneratedValue.Strategy;
 
 @Entity
+@Rest
 public class Types {
 
 	@Id

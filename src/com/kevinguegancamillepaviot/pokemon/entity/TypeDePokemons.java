@@ -10,6 +10,7 @@ import com.tactfactory.harmony.annotation.ManyToMany;
 import com.tactfactory.harmony.annotation.ManyToOne;
 
 @Entity
+@Rest
 public class TypeDePokemons {
 	
 	@Id

@@ -12,6 +12,7 @@ import com.tactfactory.harmony.annotation.ManyToOne;
 import com.tactfactory.harmony.annotation.OneToOne;
 
 @Entity
+@Rest
 public class Pokemons {
 	
 	@Id
