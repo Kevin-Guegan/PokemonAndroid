@@ -34,18 +34,18 @@ public class Pokemons {
 	private TypeDePokemons typePokemon;
 	
 	@OneToOne()
-	@Column()
+	@Column(name = "attaque1")
 	private Attaques attaque1;
 	
 	@OneToOne()
-	@Column(nullable = true)
+	@Column(name = "attaque2", nullable = true)
 	private Attaques attaque2;
 	
 	@OneToOne()
-	@Column(nullable = true)
+	@Column(name = "attaque3", nullable = true)
 	private Attaques attaque3;
 	
 	@OneToOne()
-	@Column(nullable = true)
+	@Column(name = "attaque4", nullable = true)
 	private Attaques attaque4;
 }
